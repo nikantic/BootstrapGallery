@@ -57,4 +57,8 @@ $(document).ready(function(){
 		currentLink = prevLink.find("a");
 		siblingLinkExists(currentLink);
 	});
+
+	$(".hideCaption, .imageFull").on("click", function(){
+		$(".imageCaptionFull").toggleClass("moveCaption");
+	})
 });

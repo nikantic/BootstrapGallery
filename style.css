@@ -28,6 +28,7 @@ button.close:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 102%;
 }
 .modal-dialog {
 	width: fit-content;
@@ -35,6 +36,7 @@ button.close:hover {
 }
 .modal .thumbnail {
 	padding: 0;
+	overflow: hidden;
 }
 .imageFull {
 	max-height: 97vh;
@@ -52,6 +54,22 @@ blockquote {
     color: #fff;
     width: 100%;
     padding: 5px 17px;
+    transition: 0.3s ease;
+    transform: translate(0, 105%);
+}
+.imageLink {
+	overflow: hidden;
+}
+.imageLink:hover .imageCaption {
+    transform: translate(0, 0);
+}
+.moveCaption {
+	transform: translate(0, 100%) !important;
+}
+.moveCaption .hideCaption {
+	transform: rotate(180deg);
+	border-radius: 0 0 30px 0;
+	top: -47px;
 }
 .thumbnail a {
 	display: block;
@@ -61,8 +79,9 @@ blockquote {
 	z-index: 444;
 	padding: 20px 30px;
     font-size: 17px;
+    transform: translate(0, 0);
 }
-.imageCaptionFull .pull-right{
+.imageCaptionFull .pull-right {
 	font-size: 20px;
 }
 .imageCaptionFull .pull-right .glyphicon {
@@ -80,4 +99,36 @@ blockquote {
 }
 .imageLink .views {
 	margin-left: 5px;
+}
+.hideCaption {
+	position: absolute;
+    border-radius: 0 0 0 30px;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background: #232323;
+    color: white;
+    z-index: 555;
+    width: 49px;
+    display: block;
+    padding: 15px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+@media(max-width: 460px) {
+	.imageCaptionFull .pull-right {
+		width: 100%;
+		display: block;
+		font-size: inherit;
+		float: left !important;
+	}
+	.imageCaptionFull {
+    	padding: 5px 20px; 
+    	font-size: inherit; 
+	}
+	.titleFull {
+		margin-top: 5px;
+	}
 }    
