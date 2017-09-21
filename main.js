@@ -17,8 +17,7 @@ $(document).ready(function(){
 		} else {
 			$(".prevImg").hide();	
 		}
-	}
-
+	};
 	// function to set attributes for the full image
 	var setPreview = function(imageLink) {
 		var imageSrc = imageLink.find("img").attr("src");
@@ -31,15 +30,13 @@ $(document).ready(function(){
 		$(".authorFull").text(author);
 		$(".viewsFull").text(views);
 		$(".heartsFull").text(hearts);
-	}
-
+	};
 	// show full image in modal
 	$(".imageLink").on("click", function(){
 		currentLink = $(this);
 		setPreview(currentLink);
 		siblingLinkExists(currentLink);
-	})
-
+	});
 	// go to the next image
 	$(".nextImg").on("click", function(e){
 		e.preventDefault();
@@ -48,7 +45,6 @@ $(document).ready(function(){
 		currentLink = nextLink.find("a");
 		siblingLinkExists(currentLink);
 	});
-
 	// go the previous image
 	$(".prevImg").on("click", function(e){
 		e.preventDefault();
@@ -57,8 +53,8 @@ $(document).ready(function(){
 		currentLink = prevLink.find("a");
 		siblingLinkExists(currentLink);
 	});
-
+	// toggle image caption in preview
 	$(".hideCaption, .imageFull").on("click", function(){
 		$(".imageCaptionFull").toggleClass("moveCaption");
-	})
+	});
 });

@@ -1,7 +1,15 @@
-.thumbnail {
+body {
+	font-family: 'Roboto', sans-serif;
+}
+footer {
 	padding: 15px;
-	border: 0;
-	margin-bottom: 0;
+    letter-spacing: 1px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    border-top: 2px solid #f1f1f1;
+}
+footer p {
+    display: inline-block;
 }
 button.close {
 	outline: none !important;
@@ -19,6 +27,15 @@ button.close {
 }
 button.close:hover {
 	background: rgba(17, 17, 17, 0.5);
+}
+.thumbnail {
+	padding: 15px;
+	border: 0;
+	margin-bottom: 0;
+}
+.thumbnail a {
+	display: block;
+    position: relative;
 }
 .modal {
 	padding-right: 0 !important;
@@ -38,11 +55,7 @@ button.close:hover {
 	padding: 0;
 	overflow: hidden;
 }
-.imageFull {
-	max-height: 97vh;
-	user-select: none;
-}
-blockquote {
+.blockquote {
     margin-top: 30px;
     border-left: 5px solid #FF5722;
 }
@@ -63,17 +76,15 @@ blockquote {
 .imageLink:hover .imageCaption {
     transform: translate(0, 0);
 }
-.moveCaption {
-	transform: translate(0, 100%) !important;
+.imageLink .hearts {
+	display: none;
 }
-.moveCaption .hideCaption {
-	transform: rotate(180deg);
-	border-radius: 0 0 30px 0;
-	top: -47px;
+.imageLink .views {
+	margin-left: 5px;
 }
-.thumbnail a {
-	display: block;
-    position: relative;
+.imageFull {
+	max-height: 97vh;
+	user-select: none;
 }
 .imageCaptionFull {
 	z-index: 444;
@@ -84,21 +95,11 @@ blockquote {
 .imageCaptionFull .pull-right {
 	font-size: 20px;
 }
-.imageCaptionFull .pull-right .glyphicon {
-	color: #cd5c5c;
-}
 .imageCaptionFull .pull-right span:nth-of-type(3) {
-	color: #d2d2d2;
 	margin-left: 15px;
 }
 .imageCaptionFull .pull-left {
 	color: #d6d6d6;
-}
-.imageLink .hearts {
-	display: none;
-}
-.imageLink .views {
-	margin-left: 5px;
 }
 .hideCaption {
 	position: absolute;
@@ -116,7 +117,22 @@ blockquote {
     cursor: pointer;
     transition: 0.3s ease;
 }
+.moveCaption {
+	transform: translate(0, 100%) !important;
+}
+.moveCaption .hideCaption {
+	transform: rotate(180deg);
+	border-radius: 0 0 30px 0;
+	top: -47px;
+}
+.glyphicon-heart {
+	color: #cd5c5c;
+}
+.glyphicon-eye-open {
+	color: #d2d2d2;
+}
 
+/* MEDIA QUERIES */
 @media(max-width: 460px) {
 	.imageCaptionFull .pull-right {
 		width: 100%;
