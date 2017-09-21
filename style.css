@@ -1,0 +1,44 @@
+.thumbnail {
+	padding: 15px;
+	border: 0;
+	margin-bottom: 0;
+}
+button.close {
+	outline: none !important;
+	position: absolute;
+    color: #fff !important;
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 49%;
+    right: 10px;
+    z-index: 444;
+    top: 10px;
+    padding: 5px 10px;
+    font-size: 23px;
+}
+button.close:hover {
+	background: rgba(17, 17, 17, 0.5);
+}
+.modal {
+	padding-right: 0 !important;
+	background: rgba(0, 0, 0, 0.7);
+}
+.modal-open .modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.modal-dialog {
+	width: fit-content;
+	margin-top: 20px;
+}
+.modal .thumbnail {
+	padding: 0;
+}
+.imageFull {
+	max-height: 97vh;
+}
+blockquote {
+    margin-top: 30px;
+    border-left: 5px solid #FF5722;
+}

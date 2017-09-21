@@ -1,55 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Bootstrap Gallery</title>
+	<meta charset="UTF-8">
+	<title>Bootstrap Gallery Demo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<style type="text/css">
-		.thumbnail {
-			padding: 15px;
-    		border: 0;
-    		margin-bottom: 0;
-		}
-		button.close {
-			outline: none !important;
-			position: absolute;
-		    color: #fff !important;
-		    opacity: 1 !important;
-		    background: rgba(255, 255, 255, 0.5);
-		    border-radius: 49%;
-		    right: 10px;
-		    z-index: 444;
-		    top: 10px;
-		    padding: 5px 10px;
-		    font-size: 23px;
-		}
-		button.close:hover {
-			background: rgba(17, 17, 17, 0.5);
-		}
-		.modal {
-			padding-right: 0 !important;
-			background: rgba(0, 0, 0, 0.7);
-		}
-		.modal-open .modal {
-			display: flex;
-    		align-items: center;
-    		justify-content: center;
-		}
-		.modal-dialog {
-    		width: fit-content;
-    		margin-top: 20px;
-		}
-		.modal .thumbnail {
-			padding: 0;
-		}
-		.imageFull {
-			max-height: 97vh;
-		}
-		blockquote {
-		    margin-top: 30px;
-		    border-left: 5px solid #FF5722;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-static-top">
@@ -79,7 +35,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Image Gallery</h1>
-			<h3>Click on any image for full preview</h3>
+			<h3>Click on any image for a full preview</h3>
 			<blockquote class="blockquote">This is a demo of pure Bootstrap Modal Gallery, no plugins. It tracks the current image so you can go to the previous or next image. Modal respects the width of the image and is aligned on the center of the screen with flex.</blockquote>
 		</div>
 
@@ -118,9 +74,9 @@
 		    <div class="modal-content">
 		      <div class="modal-body thumbnail">
 		      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <img class="imageFull" src="">
+		        <img class="imageFull" src="images/1.jpg">
 		      </div>
-		      	<a class="left carousel-control prevImg" href="javascript(void)" role="button" data-slide="prev">
+		      	<a class="left carousel-control prevImg" href="#" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
@@ -135,57 +91,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	var currentLink;
-
-	// function to hide or show next/prev links
-	var siblingLinkExists = function(currentLink) {
-		var nextLink = currentLink.parent().next();
-		var prevLink = currentLink.parent().prev();
-		// hide nextLink
-		if (nextLink.length > 0) {
-			$(".nextImg").show();
-		} else {
-			$(".nextImg").hide();	
-		}
-		// hide prevLink
-		if (prevLink.length > 0) {
-			$(".prevImg").show();
-		} else {
-			$(".prevImg").hide();	
-		}
-	}
-
-	// show full image in modal
-	$(".imageLink").on("click", function(){
-		currentLink = $(this);
-		siblingLinkExists(currentLink);
-		console.log(currentLink);
-		var imageSrc = $(this).find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
-	})
-
-	// go to the next image
-	$(".nextImg").on("click", function(e){
-		e.preventDefault();
-		var nextLink = currentLink.parent().next();
-		var imageSrc = nextLink.find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
-		currentLink = nextLink.find("a");
-		siblingLinkExists(currentLink);
-	});
-
-	// go the previous image
-	$(".prevImg").on("click", function(e){
-		e.preventDefault();
-		var prevLink = currentLink.parent().prev();
-		var imageSrc = prevLink.find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
-		currentLink = prevLink.find("a");
-		siblingLinkExists(currentLink);
-	});
-});
-</script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
