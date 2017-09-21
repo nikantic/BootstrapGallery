@@ -19,21 +19,32 @@ $(document).ready(function(){
 		}
 	}
 
+	// function to set attributes for the full image
+	var setPreview = function(imageLink) {
+		var imageSrc = imageLink.find("img").attr("src");
+		var title = imageLink.find(".title").text();
+		var author = imageLink.find(".author").text();
+		var views = imageLink.find(".views").text();
+		var hearts = imageLink.find(".hearts").text();
+		$(".imageFull").attr("src", imageSrc);
+		$(".titleFull").text(title);
+		$(".authorFull").text(author);
+		$(".viewsFull").text(views);
+		$(".heartsFull").text(hearts);
+	}
+
 	// show full image in modal
 	$(".imageLink").on("click", function(){
 		currentLink = $(this);
+		setPreview(currentLink);
 		siblingLinkExists(currentLink);
-		console.log(currentLink);
-		var imageSrc = $(this).find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
 	})
 
 	// go to the next image
 	$(".nextImg").on("click", function(e){
 		e.preventDefault();
 		var nextLink = currentLink.parent().next();
-		var imageSrc = nextLink.find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
+		setPreview(nextLink);
 		currentLink = nextLink.find("a");
 		siblingLinkExists(currentLink);
 	});
@@ -42,8 +53,7 @@ $(document).ready(function(){
 	$(".prevImg").on("click", function(e){
 		e.preventDefault();
 		var prevLink = currentLink.parent().prev();
-		var imageSrc = prevLink.find("img").attr("src");
-		$(".imageFull").attr("src", imageSrc);
+		setPreview(prevLink);
 		currentLink = prevLink.find("a");
 		siblingLinkExists(currentLink);
 	});
