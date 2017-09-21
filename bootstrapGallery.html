@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Bootstrap Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		.thumbnail {
+			padding: 15px;
+    		border: 0;
+    		margin-bottom: 0;
+		}
+		button.close {
+			outline: none !important;
+			position: absolute;
+		    color: #fff !important;
+		    opacity: 1 !important;
+		    background: rgba(255, 255, 255, 0.5);
+		    border-radius: 49%;
+		    right: 10px;
+		    z-index: 444;
+		    top: 10px;
+		    padding: 5px 10px;
+		    font-size: 23px;
+		}
+		button.close:hover {
+			background: rgba(17, 17, 17, 0.5);
+		}
+		.modal {
+			padding-right: 0 !important;
+			background: rgba(0, 0, 0, 0.7);
+		}
+		.modal-open .modal {
+			display: flex;
+    		align-items: center;
+    		justify-content: center;
+		}
+		.modal-dialog {
+    		width: fit-content;
+    		margin-top: 20px;
+		}
+		.modal .thumbnail {
+			padding: 0;
+		}
+		.imageFull {
+			max-height: 97vh;
+		}
+		blockquote {
+		    margin-top: 30px;
+		    border-left: 5px solid #FF5722;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+			  	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		        </button>
+				<a href="#" class="navbar-brand">Gallery</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Photos</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Sign Up</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Image Gallery</h1>
+			<h3>Click on any image for full preview</h3>
+			<blockquote class="blockquote">This is a demo of pure Bootstrap Modal Gallery, no plugins. It tracks the current image so you can go to the previous or next image. Modal respects the width of the image and is aligned on the center of the screen with flex.</blockquote>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/1.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/2.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/3.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/4.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/5.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/6.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/7.jpg"></a>
+				</div>
+				<div class="col-lg-4 thumbnail">
+					<a class="imageLink" href="#" data-toggle="modal" data-target="#myModal"><img src="images/8.jpg"></a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body thumbnail">
+		      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <img class="imageFull" src="">
+		      </div>
+		      	<a class="left carousel-control prevImg" href="javascript(void)" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control nextImg" href="#">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var currentLink;
+
+	// function to hide or show next/prev links
+	var siblingLinkExists = function(currentLink) {
+		var nextLink = currentLink.parent().next();
+		var prevLink = currentLink.parent().prev();
+		// hide nextLink
+		if (nextLink.length > 0) {
+			$(".nextImg").show();
+		} else {
+			$(".nextImg").hide();	
+		}
+		// hide prevLink
+		if (prevLink.length > 0) {
+			$(".prevImg").show();
+		} else {
+			$(".prevImg").hide();	
+		}
+	}
+
+	// show full image in modal
+	$(".imageLink").on("click", function(){
+		currentLink = $(this);
+		siblingLinkExists(currentLink);
+		console.log(currentLink);
+		var imageSrc = $(this).find("img").attr("src");
+		$(".imageFull").attr("src", imageSrc);
+	})
+
+	// go to the next image
+	$(".nextImg").on("click", function(e){
+		e.preventDefault();
+		var nextLink = currentLink.parent().next();
+		var imageSrc = nextLink.find("img").attr("src");
+		$(".imageFull").attr("src", imageSrc);
+		currentLink = nextLink.find("a");
+		siblingLinkExists(currentLink);
+	});
+
+	// go the previous image
+	$(".prevImg").on("click", function(e){
+		e.preventDefault();
+		var prevLink = currentLink.parent().prev();
+		var imageSrc = prevLink.find("img").attr("src");
+		$(".imageFull").attr("src", imageSrc);
+		currentLink = prevLink.find("a");
+		siblingLinkExists(currentLink);
+	});
+});
+</script>
+</body>
+</html>
